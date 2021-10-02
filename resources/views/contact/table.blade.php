@@ -1,11 +1,11 @@
-<table class="table  table-striped">
+<table class="container table  table-striped">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Contact</th>
-        <th scope="col">Actions</th>
+        <th colspan="3" scope="col">Actions</th>
 
       </tr>
     </thead>
@@ -17,7 +17,7 @@
             <td>{{$contact->name}}</td>
             <td>{{$contact->email}}</td>
             <td>{{$contact->contact}}</td>
-            <td>
+            <td style="display:flex; justify-content:space-around;">
                 <a href="{{route('contact.detail' , $contact->id)}}" class="btn btn-secondary">
                     <i class="fa fa-search" title="details" aria-hidden="true"></i>
                 </a>
@@ -25,7 +25,7 @@
                     <i class="fa fa-edit"  title="edit" aria-hidden="true"></i>
                 </a>
 
-                <form data-toggle="popover" data-placement="right"  action="{{route('contact.delete')}}" method="post">
+                <form style="margin: 0; padding: 0;"   action="{{route('contact.delete')}}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <input type="hidden" name="contact" value="{{$contact->id}}">
                     <button class="btn btn-danger" type="submit">

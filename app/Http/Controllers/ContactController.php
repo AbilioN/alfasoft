@@ -17,15 +17,16 @@ class ContactController extends Controller
     public function index(Request $request)
     {
         $contacts = $this->repo->contacts();
-
         return view('contact.index' , compact('contacts'));
     }
+
     public function create(Request $request)
     {
         $data = $request->all();
         $created = $this->repo->create($data);
 
-        // return view;
+        return redirect('/');
+
     }
 
     public function delete(Request $request)
