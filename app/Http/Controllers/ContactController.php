@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\ContactRepository;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -24,7 +25,7 @@ class ContactController extends Controller
     {
         return view('contact.create');
     }
-    public function create(Request $request)
+    public function create(ContactRequest $request)
     {
         $data = $request->all();
         $created = $this->repo->create($data);
