@@ -13,6 +13,11 @@ class ContactRepository
         $this->model = $model;
     }
 
+    public function contacts()
+    {
+        return $this->model->all();
+    }
+    
     public function create($data)
     {   
         try

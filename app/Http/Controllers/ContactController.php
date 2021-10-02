@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\ContactRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class ContactController extends Controller
 {
@@ -13,6 +14,12 @@ class ContactController extends Controller
         $this->repo = $repo;
     }
 
+    public function index(Request $request)
+    {
+        $contacts = $this->repo->contacts();
+
+        return view('contact.index' , compact('contacts'));
+    }
     public function create(Request $request)
     {
         $data = $request->all();

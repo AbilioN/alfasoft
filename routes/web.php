@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/' , 'ContactController@index')->name('contact.index');
+Route::get('contact/edit/{contactID}' , 'ContactController@edit')->name('contact.edit');
 Route::post('contact/create' , 'ContactController@create')->name('contact.create');

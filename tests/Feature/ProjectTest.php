@@ -17,7 +17,13 @@ class ProjectTest extends TestCase
 
         $this->contact = factory(Contact::class)->make()->toArray();
     }
+    /** @test */
 
+    public function contacts_can_be_listed()
+    {
+        $response = $this->get('/');
+
+    }
     /** @test */
     public function a_contact_can_be_created()
     {
