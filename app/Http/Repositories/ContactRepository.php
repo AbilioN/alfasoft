@@ -42,7 +42,9 @@ class ContactRepository
     {   
         try
         {
-            return $this->model->create($data);
+            $created =  $this->model->create($data);
+            Flash::message('Contact created successfully')->success();
+            return $created;
 
         }catch(Exception $e)
         {
