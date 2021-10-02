@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('contract/create' , 'ContractController@create')->name('contract.create');
