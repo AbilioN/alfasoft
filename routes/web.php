@@ -12,5 +12,8 @@
 */
 
 Route::get('/' , 'ContactController@index')->name('contact.index');
-Route::get('contact/edit/{contactID}' , 'ContactController@edit')->name('contact.edit');
+Route::get('contact/edit/{contactId}' , 'ContactController@edit')->name('contact.edit');
+Route::get('contact/detail/{contactId}' , 'ContactController@detail')->name('contact.detail');
 Route::post('contact/create' , 'ContactController@create')->name('contact.create');
+Route::post('contact/delete' , 'ContactController@delete')->name('contact.delete');
+

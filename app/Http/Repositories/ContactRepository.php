@@ -29,4 +29,14 @@ class ContactRepository
             dd($e->getMessage());
         }
     }
+
+    public function delete($contactId)
+    {
+        try{
+            return $this->model->find($contactId)->delete();
+        }catch(Exception $e)    
+        {
+
+        }
+    }
 }

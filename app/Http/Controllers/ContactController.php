@@ -27,4 +27,11 @@ class ContactController extends Controller
 
         // return view;
     }
+
+    public function delete(Request $request)
+    {   
+        $contactId = $request->contact;
+        $deleted = $this->repo->delete($contactId);
+        return redirect('/');
+    }
 }
