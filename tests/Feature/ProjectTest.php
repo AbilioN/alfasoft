@@ -28,9 +28,18 @@ class ProjectTest extends TestCase
     public function a_contact_can_be_created()
     {
         $response = $this->post('/contact/create' , $this->contact);
-        $response->assertStatus(200);
-        // $this->assertDatabaseHas('contracts' , $this->contract);
+        $this->assertDatabaseHas('contacts' , $this->contact);
+        $response->assertRedirect('/');
+
 
 
     }
+    /** @test */
+    public function a_contact_can_be_deleted()
+    {
+        $contact = factory(Contact::class)->create()->toArray();
+        $response = $this->post(route('contact.delete') , ['contact' => $contact['id']]);
+        $response->assertRedirect('/');
+    }
+
 }
