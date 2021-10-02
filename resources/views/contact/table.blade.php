@@ -1,11 +1,11 @@
 <table class="container table  table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Contact</th>
-        <th colspan="3" scope="col">Actions</th>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Actions</th>
 
       </tr>
     </thead>

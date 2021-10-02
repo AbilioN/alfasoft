@@ -20,11 +20,14 @@ class ContactController extends Controller
         return view('contact.index' , compact('contacts'));
     }
 
+    public function createView(Request $request)
+    {
+        return view('contact.create');
+    }
     public function create(Request $request)
     {
         $data = $request->all();
         $created = $this->repo->create($data);
-
         return redirect('/');
 
     }
