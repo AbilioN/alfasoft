@@ -21,9 +21,6 @@
                 <td>{{$contact->contact}}</td>
                 @if(Auth::user())
                 <td style="display:flex; justify-content:space-around;">
-                    <a href="{{route('contact.detail' , $contact->id)}}" class="btn btn-secondary">
-                        <i class="fa fa-search" title="details" aria-hidden="true"></i>
-                    </a>
                     <a href="{{route('contact.edit' , $contact->id)}}" class="btn btn-secondary">
                         <i class="fa fa-edit"  title="edit" aria-hidden="true"></i>
                     </a>
