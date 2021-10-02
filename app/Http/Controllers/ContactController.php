@@ -39,7 +39,7 @@ class ContactController extends Controller
         return view('contact.edit', compact('contact'));
     }
 
-    public function update(Request $request)
+    public function update(ContactRequest $request)
     {
        $contactId = $request->contactId;
        unset($request['contactId']);
