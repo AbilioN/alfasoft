@@ -4,6 +4,7 @@ namespace App\Http\Repositories;
 
 use App\Models\Contact;
 use Exception;
+use Laracasts\Flash\Flash;
 
 class ContactRepository 
 {
@@ -26,27 +27,41 @@ class ContactRepository
 
     public function updateContact($contactId, $data)
     {
-        return $this->model->find($contactId)->update($data);
+        try{
+            $updated = $this->model->find($contactId)->update($data);
+           
+            Flash::message('Contact updated successfully')->success();
+            return $updated;
+        }catch(Exception $e)
+        {
+            Flash::message($e->getMessage())->error();
+            redirect()->back();
+        }
     }
     public function create($data)
     {   
         try
         {
-         return $this->model->create($data);
+            return $this->model->create($data);
 
         }catch(Exception $e)
         {
-            dd($e->getMessage());
+            Flash::message($e->getMessage())->error();
+            redirect()->back();
+
         }
     }
 
     public function delete($contactId)
     {
         try{
-            return $this->model->find($contactId)->delete();
+            $deleted = $this->model->find($contactId)->delete();
+            Flash::message('Contact deleted successfully')->success();
+            return $deleted;
         }catch(Exception $e)    
         {
-
+            Flash::message($e->getMessage())->error();
+            redirect()->back();
         }
     }
 }

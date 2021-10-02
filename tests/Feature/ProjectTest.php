@@ -39,6 +39,7 @@ class ProjectTest extends TestCase
     {
         $contact = factory(Contact::class)->create()->toArray();
         $response = $this->post(route('contact.delete') , ['contact' => $contact['id']]);
+        // $this->assertDatabaseMissing('contacts' ,$contact);
         $response->assertRedirect('/');
     }
 

@@ -20,7 +20,6 @@ Route::post('contact/update' , 'ContactController@update')->name('contact.update
 Route::post('contact/create' , 'ContactController@create')->name('contact.create');
 Route::post('contact/delete' , 'ContactController@delete')->name('contact.delete');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

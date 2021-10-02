@@ -25,8 +25,8 @@ class ContactRequest extends FormRequest
     {
         return [
             'name' => ['required' , 'string' , 'min:5'],
+            'contact' => ['required' , 'numeric' , 'digits:9'],
             'email' => 'required|regex:/(.+)@(.+)\.(.+)/i',
-            'contact' => ['required' , 'string' , 'min:9' , 'max:9']
         ];
     }
 }
