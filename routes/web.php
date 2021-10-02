@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('contract/create' , 'ContractController@create')->name('contract.create');
+Route::post('contact/create' , 'ContactController@create')->name('contact.create');
