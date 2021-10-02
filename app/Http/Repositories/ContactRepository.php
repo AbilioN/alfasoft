@@ -8,16 +8,26 @@ use Exception;
 class ContactRepository 
 {
     private $model;
+
     public function __construct(Contact $model )
     {
         $this->model = $model;
     }
 
-    public function contacts()
+    public function allContacts()
     {
         return $this->model->all();
     }
     
+    public function findContact($contactId)
+    {
+        return $this->model->find($contactId);
+    }
+
+    public function updateContact($contactId, $data)
+    {
+        return $this->model->find($contactId)->update($data);
+    }
     public function create($data)
     {   
         try
