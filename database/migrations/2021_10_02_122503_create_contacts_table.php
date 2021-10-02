@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Contact;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -18,8 +19,11 @@ class CreateContactsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('contact');
+            $table->softDeletes();
             $table->timestamps();
         });
+
+        factory(Contact::class, 5)->create();
     }
 
     /**
